@@ -1,0 +1,45 @@
+{% extends 'basic.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+<div class="row">
+    <div class="col-sm-12">
+        <div class="card">
+            <div class="card-body">
+                <form method="post" action="{% url 'add_usedmachineryimages' %}" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <div class="row">
+                        <div class="col-12">
+                            <h5 class="form-title"><span>Add Used Machinery Images</span></h5>
+                        </div>
+                       {% include 'messages.html' %}
+                       <div class="col-12 col-sm-6">
+                        <div class="form-group">
+                            <label for="">Machine Name</label>
+                            <select class="form-control" name="UsedMachineID" required>
+                                <option>Select Machine</option>
+                                {% for um in umachine %}
+                                <option value="{{um.UsedMachineID}}">{{um.Name}}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                       </div>
+
+                       <div class="col-12 col-sm-6">
+                        <div class="form-group">
+                            <label>Image</label>
+                            <input type="file" class="form-control" name="Image" multiple>
+                        </div>
+                    </div>
+                        
+                        <div class="col-12">
+                            <button type="submit" class="btn btn-primary">Add Image</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

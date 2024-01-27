@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block Title %} Category {% endblock Title %}
+
+
+
+{% block body %}
+
+
+<section id="main-container" class="main-container pb-2">
+    <div class="container">
+      <div class="row">
+        {% for val in title %} {% endfor %}    
+        <div class="col-md-6 offset-md-3 mb-4">
+          <form method="get" action="{% url 'projects' %}">
+              <div class="input-group">
+                  <input type="text" class="form-control" name="q" placeholder="Search projects">
+                  <div class="input-group-append">
+                      <button class="btn btn-primary" type="submit">Search</button>
+                  </div>
+              </div>
+          </form>
+      </div>               
+        {% for pr  in pro  %}
+            <div class="col-lg-4  col-md-6 mb-5">
+            <div class="ts-service-box">
+               <!-- <div class="ts-service-image-wrapper"> -->
+                <!--    <img loading="lazy" class="w-100" src="{% static 'app/images/services/service1.jpg' %}" alt="service-image"> -->
+                <!--</div> -->
+
+                <div class="d-flex">
+                  
+                        <div class="ts-service-box-img amd-processor">
+                               
+                                <h3 class=" text-center service-box-title ">  {{pr.ProjectName}}  </h3> </br>                                   
+                                <a href="{% url 'project-detail' pr.ProjectID %}" class="btn"> <img src="{{pr.ProjectImage.url}}" width="300px" height="200px">   </a>                                                
+                           
+                              <!--  <img loading="lazy" src=" {% static 'app/images/icon-image/service-icon1.png' %}" alt="service-icon">-->
+                            
+                                <div class="ts-service-info">
+                                    <h3 class="service-box-title">
+                                    <!-- {% for val in title %}
+                                    <a href="#">{{val.title}}</a>
+                                    {% endfor %}-->
+                                    </h3>
+                                   <p> {{pr.Description|slice:":30"}}...</br></p> 
+                                </div>
+                        </div>
+                 
+                    
+                </div>
+            </div><!-- Service1 end -->
+          
+        </div><!-- Col 1 end -->
+        {% endfor %}
+        </div>
+    </div>
+</section>
+
+
+{% endblock body %}
+
+{% block main-content %}
+
+{% endblock main-content %}

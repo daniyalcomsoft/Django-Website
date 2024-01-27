@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block Title %} Category {% endblock Title %}
+
+
+
+{% block body %}
+
+
+<section id="main-container" class="main-container pb-2">
+    <div class="container">
+      <div class="row">
+        {% for val in title %} {% endfor %}                   
+        {% for prod  in prods  %}
+            <div class="col-lg-4  col-md-6 mb-5">
+            <div class="ts-service-box">
+               <!-- <div class="ts-service-image-wrapper"> -->
+                <!--    <img loading="lazy" class="w-100" src="{% static 'app/images/services/service1.jpg' %}" alt="service-image"> -->
+                <!--</div> -->
+
+                <div class="d-flex">
+                  
+                        <div class="ts-service-box-img">
+                               
+                                <h3 class=" text-center service-box-title ">  {{prod.ProductName}}  </h3> </br>                                   
+                                <a href="{% url 'product-detail' prod.ProductID %}" class="btn"> <img src="{{prod.ProductImage.url}}" width="300px" height="200px">   </a>                                                
+                           
+                              <!--  <img loading="lazy" src=" {% static 'app/images/icon-image/service-icon1.png' %}" alt="service-icon">-->
+                            
+                                <div class="ts-service-info">
+                                    <h3 class="service-box-title">
+                                    <!-- {% for val in title %}
+                                    <a href="#">{{val.title}}</a>
+                                    {% endfor %}-->
+                                    </h3>
+                                   <p> {{prod.Description}}</br>.</p> <!---->
+                                  <!--  <p> {{prod.composition}} </br></p> -->                                  
+                                    <a class="learn-more d-inline-block" href="service-single.html" aria-label="service-details"><i class="fa fa-caret-right"></i> Learn more</a>
+                                </div>
+                        </div>
+                 
+                    
+                </div>
+            </div><!-- Service1 end -->
+          
+        </div><!-- Col 1 end -->
+        {% endfor %}
+        </div>
+    </div>
+</section>
+
+
+{% endblock body %}
+
+{% block main-content %}
+
+{% endblock main-content %}

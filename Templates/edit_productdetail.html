@@ -1,0 +1,80 @@
+{% extends 'basic.html' %}
+
+{% block content %}
+
+<div class="row">
+    <div class="col-sm-12">
+        <div class="card">
+            <div class="card-body">
+                <form method="post" action="{% url 'update_productdetail' %}">
+                    {% csrf_token %}
+                    <div class="row">
+                        <div class="col-12">
+                            <h5 class="form-title"><span>Edit Product Details</span></h5>
+                        </div>
+                       {% include 'messages.html' %}
+                       <div class="col-12 col-sm-6">
+                        <div class="form-group">
+                            <label for="">Product</label>
+                            <select class="form-control" name="ProductID" id="select" required>
+                                <option>Select Product</option>
+                                {% for pro in prod %}
+                                <option value="{{pro.ProductID}}"{%if pro.ProductID == proddetails.Product.ProductID %} selected {% endif %}>{{pro.ProductName}}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                       </div>
+
+                        <div class="col-12 col-sm-6">
+                            <div class="form-group">
+                                <label>Field 1</label>
+                                <input type="text" class="form-control" name="Field1" value="{{proddetails.Field1}}" required>
+                                <input type="text" class="form-control" name="ProductDetailID" value="{{proddetails.ProductDetailID}}" required hidden>
+                            </div>
+                        </div>
+
+                        <div class="col-12 col-sm-6">
+                            <div class="form-group">
+                                <label>Field 2</label>
+                                <input type="text" class="form-control" name="Field2" value="{{proddetails.Field2}}" required>
+                            </div>
+                        </div>
+
+                        <div class="col-12 col-sm-6">
+                            <div class="form-group">
+                                <label>Field 3</label>
+                                <input type="text" class="form-control" name="Field3" value="{{proddetails.Field3}}" required>
+                            </div>
+                        </div>
+
+                        <div class="col-12 col-sm-6">
+                            <div class="form-group">
+                                <label>Field 4</label>
+                                <input type="text" class="form-control" name="Field4" value="{{proddetails.Field4}}" required>
+                            </div>
+                        </div>
+
+                        <div class="col-12 col-sm-6">
+                            <div class="form-group">
+                                <label>Field 5</label>
+                                <input type="text" class="form-control" name="Field5" value="{{proddetails.Field5}}" required>
+                            </div>
+                        </div>
+
+                        <div class="col-12 col-sm-6">
+                            <div class="form-group">
+                                <label>Description</label>
+                                <input type="text" class="form-control" name="Description" value="{{proddetails.Description}}" required>
+                            </div>
+                        </div>
+                        
+                        <div class="col-12">
+                            <button type="submit" class="btn btn-primary">Update Product Details</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

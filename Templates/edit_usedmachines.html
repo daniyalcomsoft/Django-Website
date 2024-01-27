@@ -1,0 +1,86 @@
+{% extends 'basic.html' %}
+{% block content %}
+<div class="row">
+    <div class="col-sm-12">
+        <div class="card">
+            <div class="card-body">
+                <form method="post" action="{% url 'update_usedmachines' %}" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <div class="row">
+                        <div class="col-12">
+                            <h5 class="form-title"><span>Edit Used Machine</span></h5>
+                        </div>
+                        {% include 'messages.html' %}
+                        <div class="col-12 col-sm-6">
+                            <div class="form-group">
+                                <label for="Name">Machine Name</label>
+                                <input type="text" class="form-control" name="Name" id="Name" value="{{ umachine.Name }}" required>
+                                <input type="text" class="form-control" name="UsedMachineID" value="{{ umachine.UsedMachineID }}" required hidden>
+                            </div>
+                        </div>
+                        <div class="col-12 col-sm-6">
+                            <div class="form-group">
+                                <label for="Description">Description</label>
+                                <textarea class="form-control" name="Description" id="Description" rows="4" required>{{ umachine.Description }}</textarea>
+                            </div>
+                        </div>
+                        <div class="col-12 col-sm-6">
+                            <div class="form-group">
+                                <label for="Image">Image</label>
+                                <input type="file" class="form-control-file" name="Image" id="Image" accept="image/*" required>
+                                <p>Current Image: <a href="{{ umachine.Image.url }}">{{ umachine.Image.url }}</a></p>
+                            </div>
+                        </div>
+                        <div class="col-12 col-sm-6">
+                            <div class="form-group">
+                                <label for="Ref">Reference No</label>
+                                <input type="text" class="form-control" name="Ref" id="Ref" value="{{ umachine.Ref }}">
+                            </div>
+                        </div>
+                        <div class="col-12 col-sm-6">
+                            <div class="form-group">
+                                <label for="Year">Year</label>
+                                <input type="text" class="form-control" name="Year" id="Year" value="{{ umachine.Year }}">
+                            </div>
+                        </div>
+                        <div class="col-12 col-sm-6">
+                            <div class="form-group">
+                                <label for="Brand">Brand</label>
+                                <input type="text" class="form-control" name="Brand" id="Brand" value="{{ umachine.Brand }}">
+                            </div>
+                        </div>
+                        <div class="col-12 col-sm-6">
+                            <div class="form-group">
+                                <label for="Status">Status</label>
+                                <input type="text" class="form-control" name="Status" id="Status" value="{{ umachine.Status }}">
+                            </div>
+                        </div>
+                        <div class="col-12 col-sm-6">
+                            <div class="form-group">
+                                <label for="DeliveryTime">Delivery Time</label>
+                                <input type="text" class="form-control" name="DeliveryTime" id="DeliveryTime" value="{{ umachine.DeliveryTime }}">
+                            </div>
+                        </div>
+                        <div class="col-12 col-sm-6">
+                            <div class="form-group">
+                                <label for="NumberOfStation">Number Of Stations</label>
+                                <input type="text" class="form-control" name="NumberOfStation" id="NumberOfStation" value="{{ umachine.NumberOfStation }}">
+                            </div>
+                        </div>
+                        <div class="col-12 col-sm-6">
+                            <div class="form-group">
+                                <label for="Output">Output</label>
+                                <input type="text" class="form-control" name="Output" id="Output" value="{{ umachine.Output }}">
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <button type="submit" class="btn btn-primary">Update Used Machine</button>
+                        </div>
+                    </div>
+                </form>
+                
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,106 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block Title %}
+  Category
+{% endblock %}
+{% block fnavbar %}
+
+{% endblock fnavbar %}
+{% block body %}
+
+<section id="main-container" class="main-container">
+    <div class="container">
+      <div class="row">
+  
+        <div class="col-lg-7">
+          <div class="post">
+            <div class="post-media post-image">
+              <img loading="lazy" src="{{ subproduct.ProductImage.url }}" width="400" height="400" class="img-fluid" alt="post-image">
+            </div>
+  
+          </div><!-- 1st post end -->
+        </div><!-- Content Col end -->
+  
+        <div class="col-lg-4">
+  
+          <div class="sidebar sidebar-right">
+            <div class="widget recent-posts">
+              <h1 class="widget-title">{{ subproduct.SubProductName }}</h1>
+              <ul class="list-unstyled">
+                <li class="d-flex align-items-center">
+                  
+                  <div class="post-info">
+                    <h4 class="entry-title">
+                      <a href="#">Sub Product Details</a>
+                    </h4>
+                    <ul class="fs-5" style="font-family:Georgia">
+                      <li>
+                        <p>{{ subproduct.Description }}.</p>
+                      </li>
+                    </ul>
+                    <div class="buttons row flex">
+                      <button type="submit" class="d-grid gap-2 btn1 btn p-1 m-1 btn-lg" style="background:#2e5481 ;">
+                        {% if subproduct.ProductFile %}
+                        <a href="{{ subproduct.ProductFile.url }}" download style="color: white;">Download File</a>
+                        {% else %}
+                        No file available
+                        {% endif %}
+                      </button>
+                    </div>
+                  </div>
+                </li><!-- 1st post end-->
+              </ul>
+            </div><!-- Recent post end -->
+  
+        </div><!-- Sidebar end -->
+    </div><!-- Sidebar Col end -->
+
+  </div><!-- Main row end -->
+  {% comment %} Toggle start {% endcomment %}
+  {% if product.Composition%}
+  <div class="accordion accordion-group accordion-classic" id="construction-accordion">
+    <div class="card">
+      <div class="card-header p-0 bg-transparent" id="headingTwo">
+        <h2 class="mb-0">
+          <button class="btn btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+            View Size & Details?
+          </button>
+        </h2>
+      </div>
+      <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#construction-accordion">
+        <div class="card-body">
+            <p>{{ product.Description }}.</p>
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col">Product Name</th>
+                <!-- <th scope="col">Details</th> -->
+              </tr>
+            </thead>
+            <tbody>
+              {% for detail in subproddetail %}
+              <tr>
+                <td>{{ detail.SubProduct }}</td>
+                <td>{{ detail.Field1 }}</td>
+                <td>{{ detail.Field2 }}</td>
+                <td>{{ detail.Field3 }}</td>
+                <td>{{ detail.Field4 }}</td>
+                <td>{{ detail.Field5 }}</td>
+                <td>{{ detail.Description }}</td>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  {% endif %}
+
+  {% comment %} Toggle End {% endcomment %}
+
+</div><!-- Container end -->
+</section><!-- Main container end -->
+
+{% endblock body %}

@@ -1,0 +1,41 @@
+{% extends 'basic.html' %}
+{% block content %}
+<div class="row">
+    <div class="col-sm-12">
+        <div class="card">
+            <div class="card-body">
+                <form method="post" action="{% url 'update_partners' %}" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <div class="row">
+                        <div class="col-12">
+                            <h5 class="form-title"><span>Edit Partner</span></h5>
+                        </div>
+                       {% include 'messages.html' %}
+
+                        <div class="col-12 col-sm-6">
+                            <div class="form-group">
+                                <label>Partner Image</label>
+                                <input type="file" class="form-control" name="Image">
+                                <p>Current Image: <a href="{{ part.Image.url }}">{{ part.Image.url }}</a></p>
+                            </div>
+                        </div>
+
+                        <div class="col-12 col-sm-6">
+                            <div class="form-group">
+                                <label>Link</label>
+                                <input type="text" class="form-control" name="Link" value="{{part.Link}}" required>
+                                <input type="text" class="form-control" name="PartnerID" value="{{part.PartnerID}}" required hidden>
+
+                            </div>
+                        </div>
+
+                        <div class="col-12">
+                            <button type="submit" class="btn btn-primary">Update Partner</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

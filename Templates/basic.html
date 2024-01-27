@@ -1,0 +1,705 @@
+<html lang="en">
+
+{% load static %}
+   
+   <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
+      <title>Tetratech Dashboard</title>
+      <link rel="shortcut icon" href="{% static 'assets/img/favicon.png' %}">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,500;0,600;0,700;1,400&amp;display=swap">
+      <link rel="stylesheet" href="{% static 'assets/plugins/bootstrap/css/bootstrap.min.css' %}">
+      <link rel="stylesheet" href="{% static 'assets/plugins/fontawesome/css/fontawesome.min.css' %}">
+      <link rel="stylesheet" href="{% static 'assets/plugins/fontawesome/css/all.min.css' %}">
+      <link rel="stylesheet" href="{% static 'assets/css/style.css' %}">
+      <link rel="stylesheet" href="{% static 'assets/plugins/datatables/datatables.min.css' %}">
+
+      <!-- <link rel="stylesheet" href="{% static 'assets/js/assets/plugins/fontawesome/css/bootstrap.min.css' %}"> -->
+
+
+      <!-- custom code for datetime picker by daniyal start here -->
+      <link rel="stylesheet" href="{% static 'assets/datetimepicker/jquery-ui.css' %}">
+      <link rel="stylesheet" href="{% static 'assets/datetimepicker/jquery-ui-timepicker-addon.css' %}">
+
+      <!-- custom code for datetime picker by daniyal end here -->
+
+      <!-- <link rel="stylesheet" href="{% static 'assets/index.js' %}"> -->
+
+
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css">
+      
+
+      
+   </head>
+   <body>
+
+
+    <div class="main-wrapper">
+       {% include 'header.html' %}
+       {% include 'sidebar.html' %} 
+        <div class="page-wrapper">
+         
+         <!--this is main content-->
+         {% block content %}
+         {% endblock %}
+
+<!--- this is main content -->
+           <!-- <div class="content container-fluid">
+              <div class="page-header">
+                 <div class="row">
+                    <div class="col-sm-12">
+                       <h3 class="page-title">Welcome Admin!</h3>
+                       <ul class="breadcrumb">
+                          <li class="breadcrumb-item active">Dashboard</li>
+                       </ul>
+                    </div>
+                 </div>
+              </div>
+              <div class="row">
+                 <div class="col-xl-3 col-sm-6 col-12 d-flex">
+                    <div class="card bg-one w-100">
+                       <div class="card-body">
+                          <div class="db-widgets d-flex justify-content-between align-items-center">
+                             <div class="db-icon">
+                                <i class="fas fa-user-graduate"></i>
+                             </div>
+                             <div class="db-info">
+                                <h3>{{project_count}} +</h3>
+                                <h6>All Projects</h6>
+                             </div>
+                          </div>
+                       </div>
+                    </div>
+                 </div>
+                 <div class="col-xl-3 col-sm-6 col-12 d-flex">
+                    <div class="card bg-two w-100">
+                       <div class="card-body">
+                          <div class="db-widgets d-flex justify-content-between align-items-center">
+                             <div class="db-icon">
+                                <i class="fas fa-crown"></i>
+                             </div>
+                             <div class="db-info">
+                                <h3>{{ product_count }} +</h3>
+                                <h6>All Products</h6>
+                             </div>
+                          </div>
+                       </div>
+                    </div>
+                 </div>
+                 <div class="col-xl-3 col-sm-6 col-12 d-flex">
+                    <div class="card bg-three w-100">
+                       <div class="card-body">
+                          <div class="db-widgets d-flex justify-content-between align-items-center">
+                             <div class="db-icon">
+                                <i class="fas fa-building"></i>
+                             </div>
+                             <div class="db-info">
+                                <h3>{{ used_machine_count }} +</h3>
+                                <h6>Used Machinery</h6>
+                             </div>
+                          </div>
+                       </div>
+                    </div>
+                 </div>
+                 <div class="col-xl-3 col-sm-6 col-12 d-flex">
+                    <div class="card bg-four w-100">
+                       <div class="card-body">
+                          <div class="db-widgets d-flex justify-content-between align-items-center">
+                             <div class="db-icon">
+                                <i class="fas fa-file-invoice-dollar"></i>
+                             </div>
+                             <div class="db-info">
+                                <h3>18+</h3>
+                                <h6>Services</h6>
+                             </div>
+                          </div>
+                       </div>
+                    </div>
+                 </div>
+              </div>
+              <div class="row">
+                 <div class="col-md-12 col-lg-6">
+                    <div class="card card-chart">
+                       <div class="card-header">
+                          <div class="row align-items-center">
+                             <div class="col-6">
+                                <h5 class="card-title">Revenue</h5>
+                             </div>
+                             <div class="col-6">
+                                <ul class="list-inline-group text-right mb-0 pl-0">
+                                   <li class="list-inline-item">
+                                      <div class="form-group mb-0 amount-spent-select">
+                                         <select class="form-control form-control-sm">
+                                            <option>Today</option>
+                                            <option>Last Week</option>
+                                            <option>Last Month</option>
+                                         </select>
+                                      </div>
+                                   </li>
+                                </ul>
+                             </div>
+                          </div>
+                       </div>
+                       <div class="card-body">
+                          <div id="apexcharts-area"></div>
+                       </div>
+                    </div>
+                 </div>
+                 <div class="col-md-12 col-lg-6">
+                    <div class="card card-chart">
+                       <div class="card-header">
+                          <div class="row align-items-center">
+                             <div class="col-6">
+                                <h5 class="card-title">Number of Projects</h5>
+                             </div>
+                             <div class="col-6">
+                                <ul class="list-inline-group text-right mb-0 pl-0">
+                                   <li class="list-inline-item">
+                                      <div class="form-group mb-0 amount-spent-select">
+                                         <select class="form-control form-control-sm">
+                                            <option>Today</option>
+                                            <option>Last Week</option>
+                                            <option>Last Month</option>
+                                         </select>
+                                      </div>
+                                   </li>
+                                </ul>
+                             </div>
+                          </div>
+                       </div>
+                       <div class="card-body">
+                          <div id="bar"></div>
+                       </div>
+                    </div>
+                 </div>
+              </div>
+              <div class="row">
+                 <div class="col-md-6 d-flex">
+                    <div class="card flex-fill">
+                       <div class="card-header">
+                          <h5 class="card-title">Star Students</h5>
+                       </div>
+                       <div class="card-body">
+                          <div class="table-responsive">
+                             <table class="table table-hover table-center">
+                                <thead class="thead-light">
+                                   <tr>
+                                      <th>ID</th>
+                                      <th>Name</th>
+                                      <th class="text-center">Marks</th>
+                                      <th class="text-center">Percentage</th>
+                                      <th class="text-right">Year</th>
+                                   </tr>
+                                </thead>
+                                <tbody>
+                                   <tr>
+                                      <td class="text-nowrap">
+                                         <div>PRE2209</div>
+                                      </td>
+                                      <td class="text-nowrap">John Smith</td>
+                                      <td class="text-center">1185</td>
+                                      <td class="text-center">98%</td>
+                                      <td class="text-right">
+                                         <div>2019</div>
+                                      </td>
+                                   </tr>
+                                   <tr>
+                                      <td class="text-nowrap">
+                                         <div>PRE1245</div>
+                                      </td>
+                                      <td class="text-nowrap">Jolie Hoskins</td>
+                                      <td class="text-center">1195</td>
+                                      <td class="text-center">99.5%</td>
+                                      <td class="text-right">
+                                         <div>2018</div>
+                                      </td>
+                                   </tr>
+                                   <tr>
+                                      <td class="text-nowrap">
+                                         <div>PRE1625</div>
+                                      </td>
+                                      <td class="text-nowrap">Pennington Joy</td>
+                                      <td class="text-center">1196</td>
+                                      <td class="text-center">99.6%</td>
+                                      <td class="text-right">
+                                         <div>2017</div>
+                                      </td>
+                                   </tr>
+                                   <tr>
+                                      <td class="text-nowrap">
+                                         <div>PRE2516</div>
+                                      </td>
+                                      <td class="text-nowrap">Millie Marsden</td>
+                                      <td class="text-center">1187</td>
+                                      <td class="text-center">98.2%</td>
+                                      <td class="text-right">
+                                         <div>2016</div>
+                                      </td>
+                                   </tr>
+                                   <tr>
+                                      <td class="text-nowrap">
+                                         <div>PRE2209</div>
+                                      </td>
+                                      <td class="text-nowrap">John Smith</td>
+                                      <td class="text-center">1185</td>
+                                      <td class="text-center">98%</td>
+                                      <td class="text-right">
+                                         <div>2015</div>
+                                      </td>
+                                   </tr>
+                                </tbody>
+                             </table>
+                          </div>
+                       </div>
+                    </div>
+                 </div>
+                 <div class="col-md-6 d-flex">
+                    <div class="card flex-fill">
+                       <div class="card-header">
+                          <h5 class="card-title">Student Activity</h5>
+                       </div>
+                       <div class="card-body">
+                          <ul class="activity-feed">
+                             <li class="feed-item">
+                                <div class="feed-date">Apr 13</div>
+                                <span class="feed-text"><a>John Doe</a> won 1st place in <a>"Chess"</a></span>
+                             </li>
+                             <li class="feed-item">
+                                <div class="feed-date">Mar 21</div>
+                                <span class="feed-text"><a>Justin Lee</a> participated in <a href="invoice.html">"Carrom"</a></span>
+                             </li>
+                             <li class="feed-item">
+                                <div class="feed-date">Feb 2</div>
+                                <span class="feed-text"><a>Justin Lee</a>attended internation conference in <a href="profile.html">"St.John School"</a></span>
+                             </li>
+                             <li class="feed-item">
+                                <div class="feed-date">Apr 13</div>
+                                <span class="feed-text"><a>John Doe</a> won 1st place in <a>"Chess"</a></span>
+                             </li>
+                             <li class="feed-item">
+                                <div class="feed-date">Mar 21</div>
+                                <span class="feed-text"><a>Justin Lee</a> participated in <a href="invoice.html">"Carrom"</a></span>
+                             </li>
+                          </ul>
+                       </div>
+                    </div>
+                 </div>
+              </div>
+              <div class="row">
+                 <div class="col-xl-3 col-sm-6 col-12">
+                    <div class="card flex-fill fb sm-box">
+                       <i class="fab fa-facebook"></i>
+                       <h6>50,095</h6>
+                       <p>Likes</p>
+                    </div>
+                 </div>
+                 <div class="col-xl-3 col-sm-6 col-12">
+                    <div class="card flex-fill twitter sm-box">
+                       <i class="fab fa-twitter"></i>
+                       <h6>48,596</h6>
+                       <p>Follows</p>
+                    </div>
+                 </div>
+                 <div class="col-xl-3 col-sm-6 col-12">
+                    <div class="card flex-fill insta sm-box">
+                       <i class="fab fa-instagram"></i>
+                       <h6>52,085</h6>
+                       <p>Follows</p>
+                    </div>
+                 </div>
+                 <div class="col-xl-3 col-sm-6 col-12">
+                    <div class="card flex-fill linkedin sm-box">
+                       <i class="fab fa-linkedin-in"></i>
+                       <h6>69,050</h6>
+                       <p>Follows</p>
+                    </div>
+                 </div>
+              </div>
+           </div> -->
+<!--- this is main content end here -->
+
+           {% include 'footer.html' %}
+        </div>
+     </div>
+
+    <script src="{% static 'assets/js/jquery-3.6.0.min.js' %}"></script>
+    <script src="{% static 'assets/js/popper.min.js' %}"></script>
+    <script src="{% static 'assets/plugins/bootstrap/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'assets/plugins/slimscroll/jquery.slimscroll.min.js' %}"></script>
+    <script src="{% static 'assets/plugins/apexchart/apexcharts.min.js' %}"></script>
+    <script src="{% static 'assets/plugins/apexchart/chart-data.js' %}"></script>
+
+    <script src="{% static 'assets/js/script.js' %}"></script>
+    <script src="{% static 'assets/plugins/datatables/datatables.min.js'%}"></script>
+    <script src="https://cdn.datatables.net/1.10.4/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <!-- <script src="{% static 'assets/index.js' %}"></script> -->
+
+
+    <script src="{% static 'assets/datetimepicker/jquery-ui.js' %}"></script>
+    <script src="{% static 'assets/datetimepicker/jquery-ui-timepicker-addon.js' %}"></script>
+
+    <script>
+      // $('[data-provide="datepicker"]').datetimepicker({
+      //    format: 'DD-MM-YYYY'
+      // });
+      $('#timePicker').datetimepicker({
+      dateFormat: 'dd:mm:yy',
+      });
+
+      $('#timePicker1').datetimepicker({
+      dateFormat: 'dd:mm:yy',
+      });
+      $('#timePicker2').datetimepicker({
+      dateFormat: 'dd:mm:yy',
+      });
+      $('#timePicker3').datetimepicker({
+      dateFormat: 'dd:mm:yy',
+      });
+      $('#timePicker4').datetimepicker({
+      dateFormat: 'dd:mm:yy',
+      });
+      $('#timePicker5').datetimepicker({
+      dateFormat: 'dd:mm:yy',
+      });
+      $('#timePicker6').datetimepicker({
+      dateFormat: 'dd:mm:yy',
+      });
+      $('#timePicker7').datetimepicker({
+      dateFormat: 'dd:mm:yy',
+      });
+      $('#timePicker8').datetimepicker({
+      dateFormat: 'dd:mm:yy',
+      });
+
+      $('#timePicker9').datepicker({
+         dateFormat: 'dd:mm:yy',
+      });
+      $('#timePicker10').datepicker({
+         dateFormat: 'dd:mm:yy',
+      });
+      $('#timePicker11').datetimepicker({
+         dateFormat: 'dd:mm:yy',
+      });
+      $('#timePicker12').datetimepicker({
+         dateFormat: 'dd:mm:yy',
+      });
+      $('#timePicker13').datetimepicker({
+         dateFormat: 'dd:mm:yy',
+      });
+      $('#timePicker14').datetimepicker({
+         dateFormat: 'dd:mm:yy',
+      });
+      $('#timePicker15').datetimepicker({
+         dateFormat: 'dd:mm:yy',
+      });
+      $('#timePicker16').datetimepicker({
+         dateFormat: 'dd:mm:yy',
+      });
+      $('#timePicker17').datepicker({
+         dateFormat: 'dd:mm:yy',
+      });
+      $('#timePicker18').datepicker({
+         dateFormat: 'dd:mm:yy',
+      });
+
+      $('#text').datetimepicker({
+         dateFormat: 'dd:mm:yy',
+      });
+      $('#sch').datetimepicker({
+         dateFormat: 'dd:mm:yy',
+      });
+      $('#cls').datetimepicker({
+         dateFormat: 'dd:mm:yy',
+      });
+      $('#hld').datetimepicker({
+         dateFormat: 'dd:mm:yy',
+      });
+      $('#can').datetimepicker({
+         dateFormat: 'dd:mm:yy',
+      });
+
+      $('#status_date').datetimepicker({
+         dateFormat: 'dd:mm:yy',
+      });
+      
+      $('#work_date').datetimepicker({
+         dateFormat: 'dd:mm:yy',
+      });
+      
+      $('#activity_date').datetimepicker({
+         dateFormat: 'dd:mm:yy',
+      });
+
+      $('#exnote_date').datetimepicker({
+         dateFormat: 'dd:mm:yy',
+      });
+
+      $('#innote_date').datetimepicker({
+         dateFormat: 'dd:mm:yy',
+      });
+
+    </script>
+
+    <script>
+      $("#id_birth_date").datetimepicker({ dateformat: 'dd-mm-yyyy', maxDate: 0, controlType: 'select'}).attr("autocomplete", "off");
+      // $("#id_birth_date").timepicker({ dateformat: 'yy-mm-dd', maxDate: 0, controlType: 'select'}).attr("autocomplete", "off");
+      // $("#id_birth_date").datepicker({ dateformat: 'yy-mm-dd'}).attr("autocomplete", "off");
+
+    </script>
+    
+
+    <script src="{% static 'assets/datetimepicker/jquery-input-mask-phone-number.min.js' %}"></script>
+
+    <script>
+      $(document).ready(function (){
+         $('#id_phone_number').usPhoneFormat({
+            format: '(xxx) xxx-xxxx',
+         });
+      });
+    </script>
+
+   <!-- <script>
+      $("input").on("change", function() {
+         this.setAttribute(
+            "data-date",
+            moment(this.value, "yy-MM-DD")
+            .format( this.getAttribute("data-date-format") )
+         )
+      }).trigger("change")
+   </script> -->
+
+    <script type="text/javascript">
+       $(document).ready(function () {
+          $('#table_id').dataTable();
+       });
+    </script>
+
+    <script>
+      $("#countryddl").change(function () {
+        var url = $("#addd").attr("data-city-url");
+        var countryId = $(this).val();
+  
+        $.ajax({
+          url: url,
+          data: {
+            'country': countryId
+          },
+          success: function (data) {
+            $("#carddl").html(data);
+          }
+        });
+      });
+    </script>
+
+<script>
+   $("#clientddl").change(function () {
+     var url = $(".endclient").attr("data-endclient-url");
+     var ClientID = $(this).val();
+
+     $.ajax({
+       url: url,
+       data: {
+         'client': ClientID
+       },
+       success: function (data) {
+         $("#endclientddl").html(data);
+       }
+     });
+   });
+</script>
+
+<script>
+   $("#clientdd_id").change(function () {
+     var url = $(".aall").attr("data-clientandcity-url");
+     var ClientID = $(this).val();
+
+     $.ajax({
+       url: url,
+       data: {
+         'client': ClientID
+       },
+       success: function (data) {
+         $("#endclientdd_id").html(data);
+       }
+     });
+   });
+   
+   $("#countrydd_id").change(function () {
+        var url = $(".aall").attr("data-clientandcity-url");
+        var countryId = $(this).val();
+  
+        $.ajax({
+          url: url,
+          data: {
+            'country': countryId
+          },
+          success: function (data) {
+            $("#citydd_id").html(data);
+          }
+        });
+      });
+</script>
+
+    
+
+    <script type="text/javascript">
+      function getOption() {
+          selectElement = document.querySelector('#country_id');
+          output = selectElement.value;
+          document.querySelector('.output').textContent = output;
+      }
+   </script>
+
+   <script>
+      $("select").change(function(){
+         var val = $(this).val();
+         $("#text").val(val);
+      });
+   </script>
+
+   <!-- rough -->
+   <!-- <script>
+      function convert(str) {
+         var date = new Date(str),
+            day = ("0" + date.getDate()).slice(-2),
+            mnth = ("0" + (date.getMonth() + 1)).slice(-2);
+         return [date.getFullYear(), day, mnth].join("-");
+         }
+   </script> -->
+
+   <!-- <script type="text/javascript">
+      function SetDate()
+      {
+      var date = new Date();
+      
+      var day = date.getDate();
+      var month = date.getMonth() + 1;
+      var year = date.getFullYear();
+      
+      if (month < 10) month = "0" + month;
+      if (day < 10) day = "0" + day;
+      
+      var today = year + "-" + month + "-" + day;
+      
+      
+      document.getElementById('myDate').value = today;
+      }
+      </script> -->
+
+   <script>
+      function myFunction() {
+        var checkBox = document.getElementById("myCheck");
+        var text = document.getElementById("text");
+        if (checkBox.checked == true){
+          text.style.display = "block";
+         //  document.getElementById('text').value = Date();
+            var date = new Date();
+            var day = date.getDate();
+            var month = date.getMonth() + 1;
+            var year = date.getFullYear();
+            var hours = date.getHours();
+            var minutes = date.getMinutes();
+            if (month < 10) month = "0" + month;
+            if (day < 10) day = "0" + day;
+            var today = day + ":" + month + ":" + year + " " + hours + ":" + minutes;
+            document.getElementById('text').value = today;
+          
+        } else {
+           text.style.display = "none";
+        }
+      }
+
+      function myScheduled() {
+         var checkBox = document.getElementById("scheduled");
+         var text = document.getElementById("sch");
+         if (checkBox.checked == true){
+           text.style.display = "block";
+         //   document.getElementById('sch').value = Date();
+            var date = new Date();
+            var day = date.getDate();
+            var month = date.getMonth() + 1;
+            var year = date.getFullYear();
+            var hours = date.getHours();
+            var minutes = date.getMinutes();
+            if (month < 10) month = "0" + month;
+            if (day < 10) day = "0" + day;
+            var today = day + ":" + month + ":" + year + " " + hours + ":" + minutes;
+            document.getElementById('sch').value = today;
+
+         } else {
+            text.style.display = "none";
+         }
+      }
+
+      function myClosed() {
+         var checkBox = document.getElementById("closed");
+         var text = document.getElementById("cls");
+         if (checkBox.checked == true){
+           text.style.display = "block";
+         //   document.getElementById('cls').value = Date();
+            var date = new Date();
+            var day = date.getDate();
+            var month = date.getMonth() + 1;
+            var year = date.getFullYear();
+            var hours = date.getHours();
+            var minutes = date.getMinutes();
+            if (month < 10) month = "0" + month;
+            if (day < 10) day = "0" + day;
+            var today = day + ":" + month + ":" + year + " " + hours + ":" + minutes;
+            document.getElementById('cls').value = today;
+         
+         } else {
+            text.style.display = "none";
+         }
+      }
+
+      function myHold() {
+         var checkBox = document.getElementById("hold");
+         var text = document.getElementById("hld");
+         if (checkBox.checked == true){
+           text.style.display = "block";
+         //   document.getElementById('hld').value = Date();
+            var date = new Date();
+            var day = date.getDate();
+            var month = date.getMonth() + 1;
+            var year = date.getFullYear();
+            var hours = date.getHours();
+            var minutes = date.getMinutes();
+            if (month < 10) month = "0" + month;
+            if (day < 10) day = "0" + day;
+            var today = day + ":" + month + ":" + year + " " + hours + ":" + minutes;
+            document.getElementById('hld').value = today;
+         } else {
+            text.style.display = "none";
+         }
+      }
+
+      function myCancel() {
+         var checkBox = document.getElementById("cancel");
+         var text = document.getElementById("can");
+         if (checkBox.checked == true){
+           text.style.display = "block";
+         //   document.getElementById('can').value = Date();
+            var date = new Date();
+            var day = date.getDate();
+            var month = date.getMonth() + 1;
+            var year = date.getFullYear();
+            var hours = date.getHours();
+            var minutes = date.getMinutes();
+            if (month < 10) month = "0" + month;
+            if (day < 10) day = "0" + day;
+            var today = day + ":" + month + ":" + year + " " + hours + ":" + minutes;
+            document.getElementById('can').value = today;
+         } else {
+            text.style.display = "none";
+         }
+      }
+   </script>
+
+     
+    
+ </body>
+ 
+</html>

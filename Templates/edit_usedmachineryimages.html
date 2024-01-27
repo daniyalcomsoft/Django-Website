@@ -1,0 +1,51 @@
+{% extends 'basic.html' %}
+{% block content %}
+<div class="row">
+    <div class="col-sm-12">
+        <div class="card">
+            <div class="card-body">
+                <form method="post" action="{% url 'update_usedmachineryimages' %}" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <div class="row">
+                        <div class="col-12">
+                            <h5 class="form-title"><span>Edit Used Machinery Images</span></h5>
+                        </div>
+                       {% include 'messages.html' %}
+
+                       <div class="col-12 col-sm-6">
+                        <div class="form-group">
+                            <label for="">Machine</label>
+                            <select class="form-control" name="UsedMachineID" id="select" required>
+                                <option>Select Machine</option>
+                                {% for um in umachine %}
+                                <option value="{{um.UsedMachineID}}"{%if um.UsedMachineID == umachinei.Name.UsedMachineID %} selected {% endif %}>{{um.Name}}</option>
+                                {% endfor %}
+                                <!-- {% for um in umachine %}
+                                <option value="{{ um.UsedMachineID }}"
+                                        {% if um.UsedMachineID == umachinei.Name_id %} selected {% endif %}>
+                                    {{ um.Name }}
+                                </option>
+                                {% endfor %} -->
+                            </select>
+                        </div>
+                       </div>
+
+                        <div class="col-12 col-sm-6">
+                            <div class="form-group">
+                                <label>Product Image</label>
+                                <input type="file" class="form-control" name="Image">
+                                <p>Current Image: <a href="{{ umachinei.Image.url }}">{{ umachinei.Image.url }}</a></p>
+                                <input type="text" class="form-control" name="UMID" value="{{umachinei.UMID}}" required hidden>
+
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <button type="submit" class="btn btn-primary">Update Used Machinery Images</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

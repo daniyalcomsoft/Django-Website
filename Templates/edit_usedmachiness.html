@@ -1,0 +1,84 @@
+{% extends 'basic.html' %}
+{% block content %}
+<div class="row">
+    <div class="col-sm-12">
+        <div class="card">
+            <div class="card-body">
+                <form method="post" action="{% url 'update_product' %}" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <div class="row">
+                        <div class="col-12">
+                            <h5 class="form-title"><span>Edit Product</span></h5>
+                        </div>
+                       {% include 'messages.html' %}
+                       <div class="col-12 col-sm-6">
+                        <div class="form-group">
+                            <label>Product Name</label>
+                            <input type="text" class="form-control" name="ProductName" value="{{prod.ProductName}}" required>
+                            <input type="text" class="form-control" name="ProductID" value="{{prod.ProductID}}" required hidden>
+
+                        </div>
+                        </div>
+
+                        <div class="col-12 col-sm-6">
+                            <div class="form-group">
+                                <label>Description</label>
+                                <input type="text" class="form-control" name="Description" value="{{prod.Description}}" required>
+                            </div>
+                        </div>
+
+                        <div class="col-12 col-sm-6">
+                            <div class="form-group">
+                                <label>Composition</label>
+                                <input type="text" class="form-control" name="Composition" value="{{prod.Composition}}" required>
+                            </div>
+                        </div>
+
+                        <div class="col-12 col-sm-6">
+                            <div class="form-group">
+                                <label>Product Image</label>
+                                <input type="file" class="form-control" name="ProductImage">
+                                <p>Current Image: <a href="{{ prod.ProductImage.url }}">{{ prod.ProductImage.url }}</a></p>
+
+                            </div>
+                        </div>
+
+                        <div class="col-12 col-sm-6">
+                            <div class="form-group">
+                                <label>Product File</label>
+                                <input type="file" class="form-control" name="ProductFile">
+                                <p>Current File: <a href="{{ prod.ProductFile.url }}">{{ prod.ProductFile.url }}</a></p>
+                            </div>
+                        </div>
+                       <div class="col-12 col-sm-6">
+                        <div class="form-group">
+                            <label for="">Category</label>
+                            <select class="form-control" name="CategoryID" id="select" required>
+                                <option>Select Category</option>
+                                {% for cate in cat %}
+                                <option value="{{cate.CategoryID}}"{%if cate.CategoryID == prod.Category.CategoryID %} selected {% endif %}>{{cate.CategoryName}}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                       </div>
+                       <div class="col-12 col-sm-6">
+                        <div class="form-group">
+                            <label for="">Sub Category</label>
+                            <select class="form-control" name="SubCategoryID" id="select" required>
+                                <option>Select Category</option>
+                                {% for sbcat in subcat %}
+                                <option value="{{sbcat.SubCategoryID}}"{%if sbcat.SubCategoryID == prod.SubCategory.SubCategoryID %} selected {% endif %}>{{sbcat.SubCategoryName}}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                       </div>
+                        <div class="col-12">
+                            <button type="submit" class="btn btn-primary">Update Product</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

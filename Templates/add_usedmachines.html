@@ -1,0 +1,116 @@
+{% extends 'basic.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+<div class="row">
+    <div class="col-sm-12">
+        <div class="card">
+            <div class="card-body">
+                <form method="post" action="{% url 'add_usedmachines' %}" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <div class="row">
+                        <div class="col-12">
+                            <h5 class="form-title"><span>Add Used Machinery</span></h5>
+                        </div>
+                        {% include 'messages.html' %}
+                        <div class="col-12 col-sm-6">
+                            <div class="form-group">
+                                <label for="Name">Machine Name</label>
+                                <input type="text" class="form-control" name="Name" id="Name" required>
+                            </div>
+                        </div>
+                        <div class="col-12 col-sm-6">
+                            <div class="form-group">
+                                <label for="Description">Description</label>
+                                <textarea class="form-control" name="Description" id="Description" required></textarea>
+                            </div>
+                        </div>
+                        <div class="col-12 col-sm-6">
+                            <div class="form-group">
+                                <label for="Image">Image</label>
+                                <input type="file" class="form-control" name="Image" id="Image" accept="image/*" required>
+                            </div>
+                        </div>
+                        <!-- <div class="col-12 col-sm-6">
+                            <div class="form-group">
+                                <label for="Image">Image</label>
+                                <input type="file" class="form-control" name="Image2" id="Image2" accept="image/*" required>
+                            </div>
+                        </div>
+                        <div class="col-12 col-sm-6">
+                            <div class="form-group">
+                                <label for="Image">Image</label>
+                                <input type="file" class="form-control" name="Image3" id="Image3" accept="image/*" required>
+                            </div>
+                        </div>
+                        <div class="col-12 col-sm-6">
+                            <div class="form-group">
+                                <label for="Image">Image</label>
+                                <input type="file" class="form-control" name="Image4" id="Image4" accept="image/*" required>
+                            </div>
+                        </div>
+                        <div class="col-12 col-sm-6">
+                            <div class="form-group">
+                                <label for="Image">Image</label>
+                                <input type="file" class="form-control" name="Image5" id="Image5" accept="image/*" required>
+                            </div>
+                        </div> -->
+                        <!-- <div class="col-12 col-sm-6">
+                            <div class="form-group">
+                                <label>Product Image</label>
+                                <input type="file" class="form-control" name="ProductImage">
+                            </div>
+                        </div> -->
+                        <div class="col-12 col-sm-6">
+                            <div class="form-group">
+                                <label for="Ref">Reference No</label>
+                                <input type="text" class="form-control" name="Ref" id="Ref">
+                            </div>
+                        </div>
+                        <div class="col-12 col-sm-6">
+                            <div class="form-group">
+                                <label for="Year">Year</label>
+                                <input type="text" class="form-control" name="Year" id="Year">
+                            </div>
+                        </div>
+                        <div class="col-12 col-sm-6">
+                            <div class="form-group">
+                                <label for="Brand">Brand</label>
+                                <input type="text" class="form-control" name="Brand" id="Brand">
+                            </div>
+                        </div>
+                        <div class="col-12 col-sm-6">
+                            <div class="form-group">
+                                <label for="Status">Status</label>
+                                <input type="text" class="form-control" name="Status" id="Status">
+                            </div>
+                        </div>
+                        <div class="col-12 col-sm-6">
+                            <div class="form-group">
+                                <label for="DeliveryTime">Delivery Time</label>
+                                <input type="text" class="form-control" name="DeliveryTime" id="DeliveryTime">
+                            </div>
+                        </div>
+                        <div class="col-12 col-sm-6">
+                            <div class="form-group">
+                                <label for="NumberOfStation">Number of Stations</label>
+                                <input type="text" class="form-control" name="NumberOfStation" id="NumberOfStation">
+                            </div>
+                        </div>
+                        <div class="col-12 col-sm-6">
+                            <div class="form-group">
+                                <label for="Output">Output</label>
+                                <input type="text" class="form-control" name="Output" id="Output">
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <button type="submit" class="btn btn-primary">Add Image</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

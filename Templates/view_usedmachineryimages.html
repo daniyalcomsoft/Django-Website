@@ -1,0 +1,66 @@
+{% extends 'basic.html' %} {% block content %}
+
+<div class="content container-fluid">
+  <div class="page-header">
+    <div class="row align-items-center">
+      <div class="col">
+        <h3 class="page-title">Used Machinery Images </h3>
+        <ul class="breadcrumb">
+          <li class="breadcrumb-item"><a href="{% url 'hod_home' %}">Dashboard</a></li>
+          <li class="breadcrumb-item active">Used Machinery Images</li>
+        </ul>
+      </div>
+      <div class="col-auto text-right float-right ml-auto">
+        <a href="{% url 'add_usedmachineryimages' %}" class="btn btn-primary"
+          ><i class="fas fa-plus"></i
+        ></a>
+      </div>
+    </div>
+  </div>
+  {% include 'messages.html' %}
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="card card-table">
+        <div class="card-body">
+          <div class="table-responsive table-bordered">
+            <table id="table_id" class="table table-hover table-center mb-0">
+              <thead>
+                <tr>
+                    <th>Machine Name</th>
+                    <th>Machine Image</th>
+                  <th class="text-right">Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                {% for umi in umachinei %}
+                <tr>
+                  <td>{{umi.Name}}</td>
+                    <td>
+                        {% if umi.Image %}
+                            <img class="avatar-img" src="{{ umi.Image.url }}" alt="{{ umi.Image }}" width="100">
+                        {% else %}
+                            No image available
+                        {% endif %}
+                    </td>
+                  <td class="text-right">
+                    <div class="actions">
+                      <a href="{% url 'edit_usedmachineryimages' umi.UMID %}"class="btn btn-sm bg-success-light mr-2" id="text">
+                        <i class="fas fa-pen"></i>
+                      </a>
+                      <a href="{% url 'delete_usedmachineryimages' umi.UMID %}" class="btn btn-sm bg-danger-light">
+                        <i class="fas fa-trash"></i>
+                      </a>
+                    </div>
+                  </td>
+                </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

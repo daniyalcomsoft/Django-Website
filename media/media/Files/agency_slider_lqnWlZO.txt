@@ -1,0 +1,114 @@
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="page-splitter-40 spliting">
+          <div class="presentation-real-title">
+            <h4 class="real-title">NOS REALISATIONS</h4>
+            <h6 class="real-subtitle">Conscients des enjeux environnementaux</h6>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-12">
+        <div class="image-gallery">
+          <div class="image-thumbnails">
+            <div class="thumbnail" data-index="0">
+              <img src="assets/images/3.jpg" alt="Image 1" />
+            </div>
+            <div class="thumbnail" data-index="1">
+              <img src="assets/images/1.jpg" alt="Image 2" />
+            </div>
+            <div class="thumbnail" data-index="2">
+              <img src="assets/images/2.jpg" alt="Image 3" />
+            </div>
+            <div class="thumbnail" data-index="3">
+              <img src="assets/images/3.jpg" alt="Image 4" />
+            </div>
+            <div class="thumbnail" data-index="4">
+              <img src="assets/images/4.jpg" alt="Image 5" />
+            </div>
+            <div class="thumbnail" data-index="5">
+              <img src="assets/images/5.jpg" alt="Image 6" />
+            </div>
+            <div class="thumbnail" data-index="6">
+              <img src="assets/images/1.jpg" alt="Image 7" />
+            </div>
+            <div class="thumbnail" data-index="7">
+              <img src="assets/images/2.jpg" alt="Image 7" />
+            </div>
+          </div>
+          <div class="page-splitter-60 hide-mobile">&nbsp;</div>
+          <div class="page-splitter-40 justify-content-right spit-botom">
+            <div class="presentation-real-title2">
+              <img src="assets/images/icon_arrow.svg" class="icon-real2" />
+              <h6 class="real-subtitle">Précédent</h6>
+            </div>
+            <div class="presentation-real-title3">
+              <h6 class="real-subtitle">Suivant</h6>
+              <img src="assets/images/icon_arrow.svg" class="icon-real" />
+            </div>
+          </div>
+          <div class="image-viewer">
+            <div class="viewer-inner">
+              <span class="close-btn">&times;</span>
+              <img src="" alt="" class="viewed-image" />
+              <div class="nav-btn prev-btn">&lsaquo;</div>
+              <div class="nav-btn next-btn">&rsaquo;</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const thumbnails = document.querySelectorAll('.thumbnail');
+    const imageViewer = document.querySelector('.image-viewer');
+    const viewedImage = document.querySelector('.viewed-image');
+    const closeBtn = document.querySelector('.close-btn');
+    const prevBtn = document.querySelector('.prev-btn');
+    const nextBtn = document.querySelector('.next-btn');
+    let currentIndex = 0;
+
+    thumbnails.forEach((thumbnail, index) => {
+      thumbnail.addEventListener('click', () => {
+        currentIndex = index;
+        updateViewer();
+        imageViewer.style.display = 'block';
+      });
+    });
+
+    closeBtn.addEventListener('click', () => {
+      imageViewer.style.display = 'none';
+    });
+
+    prevBtn.addEventListener('click', () => {
+      currentIndex = (currentIndex - 1 + thumbnails.length) % thumbnails.length;
+      updateViewer();
+    });
+
+    nextBtn.addEventListener('click', () => {
+      currentIndex = (currentIndex + 1) % thumbnails.length;
+      updateViewer();
+    });
+
+    function updateViewer() {
+      const src = thumbnails[currentIndex].querySelector('img').getAttribute('src');
+      viewedImage.src = src;
+    };
+
+    document.addEventListener('DOMContentLoaded', function () {
+  const prevBtn = document.querySelector('.pev-btn');
+  const nextBtn = document.querySelector('.nt-btn');
+  
+  prevBtn.addEventListener('click', function () {
+    $('#carouselExampleControls').carousel('prev');
+  });
+  
+  nextBtn.addEventListener('click', function () {
+    $('#carouselExampleControls').carousel('next');
+  });
+});
+
+  </script>
+

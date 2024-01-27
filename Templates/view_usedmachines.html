@@ -1,0 +1,84 @@
+{% extends 'basic.html' %} {% block content %}
+
+<div class="content container-fluid">
+  <div class="page-header">
+    <div class="row align-items-center">
+      <div class="col">
+        <h3 class="page-title">Product</h3>
+        <ul class="breadcrumb">
+          <li class="breadcrumb-item"><a href="{% url 'hod_home' %}">Dashboard</a></li>
+          <li class="breadcrumb-item active">Product</li>
+        </ul>
+      </div>
+      <div class="col-auto text-right float-right ml-auto">
+        <a href="{% url 'add_usedmachines' %}" class="btn btn-primary"
+          ><i class="fas fa-plus"></i
+        ></a>
+      </div>
+    </div>
+  </div>
+  {% include 'messages.html' %}
+  <div class="row">
+    <div class="col-sm-12">
+        <div class="card card-table">
+            <div class="card-body">
+                <div class="table-responsive table-bordered">
+                    <table id="table_id" class="table table-hover table-center mb-0">
+                        <thead>
+                            <tr>
+                                <th>Machine Name</th>
+                                <th>Description</th>
+                                <th>Reference No</th>
+                                <th>Year</th>
+                                <th>Brand</th>
+                                <th>Status</th>
+                                <th>Delivery Time</th>
+                                <th>Number of Stations</th>
+                                <th>Output</th>
+                                <th>Machine Image</th>
+                                <th class="text-right">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for machine in umachine %}
+                            <tr>
+                                <td>{{ machine.Name }}</td>
+                                <td>{{ machine.Description }}</td>
+                                <td>{{ machine.Ref }}</td>
+                                <td>{{ machine.Year }}</td>
+                                <td>{{ machine.Brand }}</td>
+                                <td>{{ machine.Status }}</td>
+                                <td>{{ machine.DeliveryTime }}</td>
+                                <td>{{ machine.NumberOfStation }}</td>
+                                <td>{{ machine.Output }}</td>
+                                <td>
+                                    {% if machine.Image %}
+                                    <img class="avatar-img" src="{{ machine.Image.url }}" alt="{{ machine.Name }}" width="100">
+                                    {% else %}
+                                    No image available
+                                    {% endif %}
+                                </td>
+
+                                <td class="text-right">
+                                    <div class="actions">
+                                        <a href="{% url 'edit_usedmachines' machine.UsedMachineID %}" class="btn btn-sm bg-success-light mr-2" id="text">
+                                            <i class="fas fa-pen"></i>
+                                        </a>
+                                        <a href="{% url 'delete_usedmachines' machine.UsedMachineID %}" class="btn btn-sm bg-danger-light">
+                                            <i class="fas fa-trash"></i>
+                                        </a>
+                                    </div>
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</div>
+
+{% endblock %}

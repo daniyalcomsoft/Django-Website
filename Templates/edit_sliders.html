@@ -1,0 +1,61 @@
+{% extends 'basic.html' %}
+{% block content %}
+<div class="row">
+    <div class="col-sm-12">
+        <div class="card">
+            <div class="card-body">
+                <form method="post" action="{% url 'update_sliders' %}" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <div class="row">
+                        <div class="col-12">
+                            <h5 class="form-title"><span>Edit Slider</span></h5>
+                        </div>
+                       {% include 'messages.html' %}
+
+                        <div class="col-12 col-sm-6">
+                            <div class="form-group">
+                                <label>Image</label>
+                                <input type="file" class="form-control" name="Image">
+                                <p>Current Image: <a href="{{ sliders.Image.url }}">{{ sliders.Image.url }}</a></p>
+                            </div>
+                        </div>
+
+                        <div class="col-12 col-sm-6">
+                            <div class="form-group">
+                                <label>Heading</label>
+                                <input type="text" class="form-control" name="HeadOne" value="{{sliders.HeadOne}}" required>
+                                <input type="text" class="form-control" name="SiderID" value="{{sliders.SiderID}}" required hidden>
+
+                            </div>
+                        </div>
+
+                        <div class="col-12 col-sm-6">
+                            <div class="form-group">
+                                <label>Heading</label>
+                                <input type="text" class="form-control" name="HeadTwo" value="{{sliders.HeadTwo}}" required>
+                            </div>
+                        </div>
+
+                        <div class="col-12 col-sm-6">
+                            <div class="form-group">
+                                <label>Link</label>
+                                <input type="text" class="form-control" name="LinkOne" value="{{sliders.LinkOne}}" required>
+                            </div>
+                        </div>
+                        <div class="col-12 col-sm-6">
+                            <div class="form-group">
+                                <label>Link</label>
+                                <input type="text" class="form-control" name="LinkTwo" value="{{sliders.LinkTwo}}" required>
+                            </div>
+                        </div>
+
+                        <div class="col-12">
+                            <button type="submit" class="btn btn-primary">Update Slider</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

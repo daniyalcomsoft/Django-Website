@@ -1,0 +1,104 @@
+{% load static %}
+
+<div class="sidebar" id="sidebar">
+    <div class="sidebar-inner slimscroll">
+       <div id="sidebar-menu" class="sidebar-menu">
+          <ul>
+             <li class="menu-title">
+                <span>Main Menu</span>
+             </li>
+             <li class="submenu">
+               <a href="#"><i class="fas fa-flag"></i> <span> Sliders</span> <span class="menu-arrow"></span></a>
+               <ul>
+                  <li><a href="{% url 'add_sliders' %}">Add Slider</a></li>
+                  <li><a href="{% url 'view_sliders' %}">View Slider</a></li>
+               </ul>
+            </li>
+             <li class="submenu">
+               <a href="#"><i class="fas fa-flag"></i> <span> Category</span> <span class="menu-arrow"></span></a>
+               <ul>
+                  <li><a href="{% url 'add_category' %}">Add Category</a></li>
+                  <li><a href="{% url 'view_category' %}">View Category</a></li>
+               </ul>
+            </li>
+
+             <li class="submenu">
+               <a href="#"><i class="fas fa-user-friends"></i> <span> Sub Category</span> <span class="menu-arrow"></span></a>
+               <ul>
+                  <li><a href="{% url 'add_subcategory' %}">Add Sub Category</a></li>
+                  <li><a href="{% url 'view_subcategory' %}">View Sub Category</a></li>
+               </ul>
+            </li>
+
+            <li class="submenu">
+               <a href="#"><i class="fas fa-user-friends"></i> <span> Products</span> <span class="menu-arrow"></span></a>
+               <ul>
+                  <li><a href="{% url 'add_product' %}">Add Product</a></li>
+                  <li><a href="{% url 'view_product' %}">View Product</a></li>
+               </ul>
+            </li>
+
+            <li class="submenu">
+               <a href="#"><i class="fas fa-user-friends"></i> <span> Product Details</span> <span class="menu-arrow"></span></a>
+               <ul>
+                  <li><a href="{% url 'add_productdetail' %}">Add Product Details</a></li>
+                  <li><a href="{% url 'view_productdetail' %}">View Product Details</a></li>
+               </ul>
+            </li>
+
+            <li class="submenu">
+               <a href="#"><i class="fas fa-user-friends"></i> <span> Sub Products</span> <span class="menu-arrow"></span></a>
+               <ul>
+                  <li><a href="{% url 'add_subproduct' %}">Add Sub Product</a></li>
+                  <li><a href="{% url 'view_subproduct' %}">View Sub Product</a></li>
+               </ul>
+            </li>
+
+
+            <li class="submenu">
+               <a href="#"><i class="fas fa-user-friends"></i> <span> Sub Product Details</span> <span class="menu-arrow"></span></a>
+               <ul>
+                  <li><a href="{% url 'add_subproductdetail' %}">Add Sub Product Details</a></li>
+                  <li><a href="{% url 'view_subproductdetail' %}">View Sub Product Details</a></li>
+               </ul>
+            </li>
+
+            <li class="submenu">
+               <a href="#"><i class="fas fa-user-friends"></i> <span> Projects </span> <span class="menu-arrow"></span></a>
+               <ul>
+                  <li><a href="{% url 'add_project' %}">Add Projects</a></li>
+                  <li><a href="{% url 'view_project' %}">View Projects</a></li>
+               </ul>
+            </li>
+
+            <li class="submenu">
+               <a href="#"><i class="fas fa-user-friends"></i> <span> Partners </span> <span class="menu-arrow"></span></a>
+               <ul>
+                  <li><a href="{% url 'add_partners' %}">Add Partner</a></li>
+                  <li><a href="{% url 'view_partners' %}">View Partner</a></li>
+               </ul>
+            </li>
+
+            <li class="submenu">
+               <a href="#"><i class="fas fa-user-friends"></i> <span> Clients </span> <span class="menu-arrow"></span></a>
+               <ul>
+                  <li><a href="{% url 'add_client' %}">Add Client</a></li>
+                  <li><a href="{% url 'view_client' %}">View Client</a></li>
+               </ul>
+            </li>
+
+            <li class="submenu">
+               <a href="#"><i class="fas fa-user-friends"></i> <span> Used Machine </span> <span class="menu-arrow"></span></a>
+               <ul>
+                  <li><a href="{% url 'add_usedmachines' %}">Add Used Machine</a></li>
+                  <li><a href="{% url 'view_usedmachines' %}">View Used Machine</a></li>
+                  <li><a href="{% url 'add_usedmachineryimages' %}">Add Used Machine Images</a></li>
+                  <li><a href="{% url 'view_usedmachineryimages' %}">View Used Machine Images</a></li>
+               </ul>
+            </li>
+
+
+          </ul>
+       </div>
+    </div>
+ </div>

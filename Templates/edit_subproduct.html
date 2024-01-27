@@ -1,0 +1,95 @@
+{% extends 'basic.html' %}
+{% block content %}
+<div class="row">
+    <div class="col-sm-12">
+        <div class="card">
+            <div class="card-body">
+                <form method="post" action="{% url 'update_subproduct' %}" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <div class="row">
+                        <div class="col-12">
+                            <h5 class="form-title"><span>Edit Sub Product</span></h5>
+                        </div>
+                       {% include 'messages.html' %}
+                       <div class="col-12 col-sm-6">
+                        <div class="form-group">
+                            <label>Product Name</label>
+                            <input type="text" class="form-control" name="SubProductName" value="{{subprod.SubProductName}}" required>
+                            <input type="text" class="form-control" name="SubProductID" value="{{subprod.SubProductID}}" required hidden>
+
+                        </div>
+                        </div>
+
+                        <div class="col-12 col-sm-6">
+                            <div class="form-group">
+                                <label>Description</label>
+                                <input type="text" class="form-control" name="Description" value="{{subprod.Description}}" required>
+                            </div>
+                        </div>
+
+                        <div class="col-12 col-sm-6">
+                            <div class="form-group">
+                                <label>Composition</label>
+                                <input type="text" class="form-control" name="Composition" value="{{subprod.Composition}}" required>
+                            </div>
+                        </div>
+
+                        <div class="col-12 col-sm-6">
+                            <div class="form-group">
+                                <label>Product Image</label>
+                                <input type="file" class="form-control" name="ProductImage">
+                                <p>Current Image: <a href="{{ subprod.ProductImage.url }}">{{ subprod.ProductImage.url }}</a></p>
+
+                            </div>
+                        </div>
+
+                        <div class="col-12 col-sm-6">
+                            <div class="form-group">
+                                <label>Product File</label>
+                                <input type="file" class="form-control" name="ProductFile">
+                                <p>Current File: <a href="{{ subprod.ProductFile.url }}">{{ subprod.ProductFile.url }}</a></p>
+                            </div>
+                        </div>
+                       <div class="col-12 col-sm-6">
+                        <div class="form-group">
+                            <label for="">Category</label>
+                            <select class="form-control" name="CategoryID" id="select" required>
+                                <option>Select Category</option>
+                                {% for cate in cat %}
+                                <option value="{{cate.CategoryID}}"{%if cate.CategoryID == subprod.Category.CategoryID %} selected {% endif %}>{{cate.CategoryName}}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                       </div>
+                       <div class="col-12 col-sm-6">
+                        <div class="form-group">
+                            <label for="">Sub Category</label>
+                            <select class="form-control" name="SubCategoryID" id="select" required>
+                                <option>Select Category</option>
+                                {% for sbcat in subcat %}
+                                <option value="{{sbcat.SubCategoryID}}"{%if sbcat.SubCategoryID == subprod.SubCategory.SubCategoryID %} selected {% endif %}>{{sbcat.SubCategoryName}}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                       </div>
+                       <div class="col-12 col-sm-6">
+                        <div class="form-group">
+                            <label for="">Product</label>
+                            <select class="form-control" name="ProductID" id="select" required>
+                                <option>Select Product</option>
+                                {% for prd in prod %}
+                                <option value="{{prd.ProductID}}"{%if prd.ProductID == subprod.Product.ProductID %} selected {% endif %}>{{prd.ProductName}}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                       </div>
+                        <div class="col-12">
+                            <button type="submit" class="btn btn-primary">Update Product</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

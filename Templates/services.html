@@ -1,0 +1,187 @@
+
+{% extends 'base.html' %}
+{% load static %}
+{% block Title %} Category {% endblock Title %}
+
+
+
+{% block body %}
+
+
+
+  <div class="body-inner">
+
+    <!--/ Header end -->
+    <div id="banner-area" class="banner-area"style="background-image:url({% static 'app/images/banner/banner1.jpg' %})">
+      <div class="banner-text">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-12">
+              <div class="banner-heading">
+                <h1 class="banner-title">Service</h1>
+                <nav aria-label="breadcrumb">
+                  <ol class="breadcrumb justify-content-center">
+                    <li class="breadcrumb-item"><a href="#">Home</a></li>
+                    <li class="breadcrumb-item"><a href="#">Services</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">All Services</li>
+                  </ol>
+                </nav>
+              </div>
+            </div><!-- Col end -->
+          </div><!-- Row end -->
+        </div><!-- Container end -->
+      </div><!-- Banner text end -->
+    </div><!-- Banner area end -->
+
+    <section id="main-container" class="main-container pb-2">
+      <div class="container">
+        <div class="row">
+
+          <div class="col-lg-4 col-md-6 mb-5">
+            <div class="ts-service-box">
+              <div class="ts-service-image-wrapper">
+                <img loading="lazy" class="w-100" src="{% static 'app/images/services/Solution1.jpg' %}" alt="service-image">
+              </div>
+              <div class="d-flex">
+                <div class="ts-service-box-img">
+                  <img loading="lazy" src="{% static 'app/images/icon-image/Icon-1.png' %}" alt="service-icon">
+                </div>
+                <div class="ts-service-info">
+                  <h3 class="service-box-title"><a href="{% url 'solutionengineer' %}">Engineering</a></h3>
+                  <p>Tetra Tech services span the range from Plant Expansions, Plant Relocation, Plant Modification,
+                    Plant Automation and Complete Turnkey Solution With over 20 years of experience in Serving the
+                    Process Industry Tetra Tech Co. has the necessary skill set and experience to service the industry
+                    with their knowledge and understanding. </p>
+                  <a class="learn-more d-inline-block" href="service-single.html" aria-label="service-details"><i
+                      class="fa fa-caret-right"></i> Learn more</a>
+                </div>
+              </div>
+            </div><!-- Service1 end -->
+          </div><!-- Col 1 end -->
+
+          <div class="col-lg-4 col-md-6 mb-5">
+            <div class="ts-service-box">
+              <div class="ts-service-image-wrapper">
+                <img loading="lazy" class="w-100" src="{% static 'app/images/services/Solution2.jpg' %}" alt="service-image">
+              </div>
+              <div class="d-flex">
+                <div class="ts-service-box-img">
+                  <img loading="lazy"
+                    src="{% static 'app/images/icon-image/Icon-2.png' %}"
+                    alt="service-icon">
+                </div>
+                <div class="ts-service-info">
+                  <h3 class="service-box-title"><a href="{% url 'solutiondesign' %}">Designing</a></h3>
+                  <p>Tetra Tech offers a comprehensive project management and design package to facilitate timely and
+                    cost-effective delivery of high-quality projects. Our design department utilizes the latest 3-D CAD
+                    (computer-aided design) technology, as well as web-based drawing review capabilities.</p>
+                  <a class="learn-more d-inline-block" href="service-single.html" aria-label="service-details"><i
+                      class="fa fa-caret-right"></i> Learn more</a>
+                </div>
+              </div>
+            </div><!-- Service2 end -->
+          </div><!-- Col 2 end -->
+
+          <div class="col-lg-4 col-md-6 mb-5">
+            <div class="ts-service-box">
+              <div class="ts-service-image-wrapper">
+                <img loading="lazy" class="w-100" src="{% static 'app/images/services/Solution3.jpeg' %}" alt="service-image">
+              </div>
+              <div class="d-flex">
+                <div class="ts-service-box-img">
+                  <img loading="lazy"
+                    src="{% static 'app/images/icon-image/Icon-3.png' %}"
+                    alt="service-icon">
+                </div>
+                <div class="ts-service-info">
+                  <h3 class="service-box-title"><a href="{% url 'solutionfabrication' %}">Fabrication</a></h3>
+                  <p>Our team at Tetra Tech has extensive experience and knowledge in working with these materials. By
+                    doing so, customers are able to achieve exceptional results with their products. Utilizing high-end
+                    machines, our Fabrication ensures that your products meet industrial standards</p>
+                  <a class="learn-more d-inline-block" href="service-single.html" aria-label="service-details"><i
+                      class="fa fa-caret-right"></i> Learn more</a>
+                </div>
+              </div>
+            </div><!-- Service3 end -->
+          </div><!-- Col 3 end -->
+
+          <div class="col-lg-4 col-md-6 mb-5">
+            <div class="ts-service-box">
+              <div class="ts-service-image-wrapper">
+                <img loading="lazy" class="w-100" src="{% static 'app/images/services/Solution4.jpg' %}" alt="service-image">
+              </div>
+              <div class="d-flex">
+                <div class="ts-service-box-img">
+                  <img loading="lazy"
+                    src="{% static 'app/images/icon-image/Icon-4.png' %}"
+                    alt="service-icon">
+                </div>
+                <div class="ts-service-info">
+                  <h3 class="service-box-title"><a href="{% url 'solutioninstallation' %}">Installation</a></h3>
+                  <p>Tetra Tech's installation and maintenance team will take care of all the details during the
+                    installation process. From coordination of rental equipment to rigging and placing machinery, let
+                    our experts handle the heavy lifting for you</p>
+                  <a class="learn-more d-inline-block" href="service-single.html" aria-label="service-details"><i
+                      class="fa fa-caret-right"></i> Learn more</a>
+                </div>
+              </div>
+            </div><!-- Service1 end -->
+          </div><!-- Col 4 end -->
+
+          <div class="col-lg-4 col-md-6 mb-5">
+            <div class="ts-service-box">
+              <div class="ts-service-image-wrapper">
+                <img loading="lazy" class="w-100" src="{% static 'app/images/services/Solution5.jpeg' %}" alt="service-image">
+              </div>
+              <div class="d-flex">
+                <div class="ts-service-box-img">
+                  <img loading="lazy" src="{% static 'app/images/icon-image/Icon-5.png' %}" alt="service-icon">
+                </div>
+                <div class="ts-service-info">
+                  <h3 class="service-box-title"><a href="service-single.html">Testing & Commissioning</a></h3>
+                  <p>Tetra Tech is committed to providing a smooth and efficient startup process. Therefore, we provide startup and commissioning services. The terminations of your equipment will be carefully checked by our technicians once the equipment has been positioned and wired. </p>
+                  <a class="learn-more d-inline-block" href="service-single.html" aria-label="service-details"><i
+                      class="fa fa-caret-right"></i> Learn more</a>
+                </div>
+              </div>
+            </div><!-- Service2 end -->
+          </div><!-- Col 5 end -->
+
+          <div class="col-lg-4 col-md-6 mb-5">
+            <div class="ts-service-box">
+              <div class="ts-service-image-wrapper">
+                <img loading="lazy" class="w-100" src="{% static 'app/images/services/Solution6.jpeg' %}" alt="service-image">
+              </div>
+              <div class="d-flex">
+                <div class="ts-service-box-img">
+                  <img loading="lazy" src="{% static 'app/images/icon-image/Icon-6.png' %}" alt="service-icon">
+                </div>
+                <div class="ts-service-info">
+                  <h3 class="service-box-title"><a href="{% url 'solutionmantainence' %}">Service & Maintaince</a></h3>
+                  <p>Tetra Tech's qualified service engineers and technicians. will take care of all the details during the installation process. They provide prompt, on-site commissioning with both mechanical and electrical support. </p>
+                  <a class="learn-more d-inline-block" href="service-single.html" aria-label="service-details"><i
+                      class="fa fa-caret-right"></i> Learn more</a>
+                </div>
+              </div>
+            </div><!-- Service3 end -->
+          </div><!-- Col 6 end -->
+
+        </div><!-- Main row end -->
+      </div><!-- Conatiner end -->
+    </section><!-- Main container end -->
+
+
+
+    <!-- Javascript Files
+  ================================================== -->
+
+
+  </div>
+
+
+  {% endblock body %}
+
+  {% block main-content %}
+  
+  {% endblock main-content %}
+  

@@ -1,0 +1,98 @@
+{% extends 'basic.html' %}
+
+{% block content %}
+
+<div class="row">
+    <div class="col-sm-12">
+        <div class="card">
+            <div class="card-body">
+                <form method="post" action="{% url 'add_subproduct' %}" enctype="multipart/form-data" >
+                    {% csrf_token %}
+                    <div class="row">
+                        <div class="col-12">
+                            <h5 class="form-title"><span>Add Sub Product</span></h5>
+                        </div>
+                       {% include 'messages.html' %}
+
+                       <div class="col-12 col-sm-6">
+                        <div class="form-group">
+                            <label for="">Category</label>
+                            <select class="form-control" name="CategoryID" required>
+                                <option>Select Category</option>
+                                {% for cate in cat %}
+                                <option value="{{cate.CategoryID}}">{{cate.CategoryName}}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                       </div>
+
+                       <div class="col-12 col-sm-6">
+                        <div class="form-group">
+                            <label for="">Sub Category</label>
+                            <select class="form-control" name="SubCategoryID" required>
+                                <option>Select Sub Category</option>
+                                {% for sbtc in subcat %}
+                                <option value="{{sbtc.SubCategoryID}}">{{sbtc.SubCategoryName}}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                       </div>
+
+                       <div class="col-12 col-sm-6">
+                        <div class="form-group">
+                            <label for="">Product</label>
+                            <select class="form-control" name="ProductID" required>
+                                <option>Select Product</option>
+                                {% for pd in prod %}
+                                <option value="{{pd.ProductID}}">{{pd.ProductName}}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                       </div>
+
+                       <div class="col-12 col-sm-6">
+                        <div class="form-group">
+                            <label>Sub Product Name</label>
+                            <input type="text" class="form-control" name="SubProductName" required>
+                        </div>
+                        </div>
+
+                        <div class="col-12 col-sm-6">
+                            <div class="form-group">
+                                <label>Description</label>
+                                <input type="text" class="form-control" name="Description" required>
+                            </div>
+                        </div>
+
+                        <div class="col-12 col-sm-6">
+                            <div class="form-group">
+                                <label>Composition</label>
+                                <input type="text" class="form-control" name="Composition" required>
+                            </div>
+                        </div>
+
+                        <div class="col-12 col-sm-6">
+                            <div class="form-group">
+                                <label>Product Image</label>
+                                <input type="file" class="form-control" name="ProductImage">
+                            </div>
+                        </div>
+
+                        <div class="col-12 col-sm-6">
+                            <div class="form-group">
+                                <label>Product File</label>
+                                <input type="file" class="form-control" name="ProductFile">
+                            </div>
+                        </div>                        
+
+                        
+                        <div class="col-12">
+                            <button type="submit" class="btn btn-primary">Add Sub Product</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

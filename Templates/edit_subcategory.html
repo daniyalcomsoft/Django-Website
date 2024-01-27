@@ -1,0 +1,45 @@
+{% extends 'basic.html' %}
+
+{% block content %}
+
+<div class="row">
+    <div class="col-sm-12">
+        <div class="card">
+            <div class="card-body">
+                <form method="post" action="{% url 'update_subcategory' %}">
+                    {% csrf_token %}
+                    <div class="row">
+                        <div class="col-12">
+                            <h5 class="form-title"><span>Edit Sub Category</span></h5>
+                        </div>
+                       {% include 'messages.html' %}
+                       <div class="col-12 col-sm-6">
+                        <div class="form-group">
+                            <label for="">Category</label>
+                            <select class="form-control" name="CategoryID" id="select" required>
+                                <option>Select Category</option>
+                                {% for cate in cat %}
+                                <option value="{{cate.CategoryID}}"{%if cate.CategoryID == subcat.Category.CategoryID %} selected {% endif %}>{{cate.CategoryName}}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                       </div>
+
+                        <div class="col-12 col-sm-6">
+                            <div class="form-group">
+                                <label>Sub-Category Name</label>
+                                <input type="text" class="form-control" name="SubCategoryName" value="{{subcat.SubCategoryName}}" required>
+                                <input type="text" class="form-control" name="SubCategoryID" value="{{subcat.SubCategoryID}}" required hidden>
+                            </div>
+                        </div>
+                        
+                        <div class="col-12">
+                            <button type="submit" class="btn btn-primary">Update Sub-Category</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

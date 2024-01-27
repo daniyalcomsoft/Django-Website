@@ -1,0 +1,76 @@
+{% extends 'basic.html' %}
+
+{% block content %}
+
+<div class="row">
+    <div class="col-sm-12">
+        <div class="card">
+            <div class="card-body">
+                <form method="post" action="{% url 'add_productdetail' %}" >
+                    {% csrf_token %}
+                    <div class="row">
+                        <div class="col-12">
+                            <h5 class="form-title"><span>Add Product Details</span></h5>
+                        </div>
+                       {% include 'messages.html' %}
+
+                       <div class="col-12 col-sm-6">
+                        <div class="form-group">
+                            <label for="">Product</label>
+                            <select class="form-control" name="ProductID" required>
+                                <option>Select Product</option>
+                                {% for pro in prod %}
+                                <option value="{{pro.ProductID}}">{{pro.ProductName}}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                       </div>
+
+                        <div class="col-12 col-sm-6">
+                            <div class="form-group">
+                                <label>Field1</label>
+                                <input type="text" class="form-control" name="Field1" required>
+                            </div>
+                        </div>
+                        <div class="col-12 col-sm-6">
+                            <div class="form-group">
+                                <label>Field2</label>
+                                <input type="text" class="form-control" name="Field2" required>
+                            </div>
+                        </div>
+                        <div class="col-12 col-sm-6">
+                            <div class="form-group">
+                                <label>Field3</label>
+                                <input type="text" class="form-control" name="Field3" required>
+                            </div>
+                        </div>
+                        <div class="col-12 col-sm-6">
+                            <div class="form-group">
+                                <label>Field4</label>
+                                <input type="text" class="form-control" name="Field4" required>
+                            </div>
+                        </div>
+                        <div class="col-12 col-sm-6">
+                            <div class="form-group">
+                                <label>Field5</label>
+                                <input type="text" class="form-control" name="Field5" required>
+                            </div>
+                        </div>
+                        
+                        <div class="col-12 col-sm-6">
+                            <div class="form-group">
+                                <label>Description</label>
+                                <input type="text" class="form-control" name="Description" required>
+                            </div>
+                        </div>
+                        
+                        <div class="col-12">
+                            <button type="submit" class="btn btn-primary">Add Product Detail</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

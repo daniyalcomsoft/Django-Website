@@ -1,0 +1,88 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block Title %}
+Machine Details
+{% endblock %}
+{% block fnavbar %}
+
+{% endblock fnavbar %}
+{% block body %}
+
+<section id="main-container" class="main-container" style="padding-top: 0px;">
+  <div class="card-wrapper">
+    <div class="card">
+      <!-- card left -->
+      <div class="product-imgs">
+        <div class="img-display">
+          <div class="img-showcase">
+            {% for image in uimage %}
+            <img class="um-img" src="{{ image.Image.url }}" width="400" height="400" alt="shoe image">
+            {% endfor %}
+          </div>
+        </div>
+        <hr style="background-color:#ebe7e7; border: 0; height: 1px; margin: 10px 0px;">
+        <div class="img-select">
+          {% for image in uimage %}
+          <div class="img-item">
+            <a href="#" data-id="{{ image.id }}">
+              <img class="multiimage" src="{{ image.Image.url }}" width="150" height="150" alt="shoe image">
+            </a>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+      <!-- card right -->
+      <div class="product-content">
+        <h2 class="product-title">{{umachine_details.Name}}</h2>
+        <div class="product-detail">
+          <h3 style="font-size: 22px;">about this machine: </h3>
+          <p>{{umachine_details.Description}}</p>
+          
+          <ul>
+            <li>Ref: <span>{{umachine_details.Ref}}</span></li>
+            <li>Year: <span>{{umachine_details.Year}}</span></li>
+            <li>Brand: <span>{{umachine_details.Brand}}</span></li>
+            <li>Status: <span>{{umachine_details.Status}}</span></li>
+            <li>DeliveryTime: <span>{{umachine_details.DeliveryTime}}</span></li>
+            <li>NumberOfStation: <span>{{umachine_details.NumberOfStation}}</span></li>
+            <li>Output: <span>{{umachine_details.Output}}</span></li>
+            
+          </ul>
+        </div>
+
+
+        <!-- <div class="purchase-info">
+          <input type="number" min="0" value="1">
+          <button type="button" class="btn">
+            Add to Cart <i class="fas fa-shopping-cart"></i>
+          </button>
+          <button type="button" class="btn">Compare</button>
+        </div> -->
+
+        <!-- <div class="social-links">
+          <p>Share At: </p>
+          <a href="#">
+            <i class="fab fa-facebook-f"></i>
+          </a>
+          <a href="#">
+            <i class="fab fa-twitter"></i>
+          </a>
+          <a href="#">
+            <i class="fab fa-instagram"></i>
+          </a>
+          <a href="#">
+            <i class="fab fa-whatsapp"></i>
+          </a>
+          <a href="#">
+            <i class="fab fa-pinterest"></i>
+          </a>
+        </div> -->
+      </div>
+    </div>
+  </div>
+  <!-- Container end -->
+</section><!-- Main container end -->
+
+
+
+{% endblock body %}

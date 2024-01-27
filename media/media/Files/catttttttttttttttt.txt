@@ -1,0 +1,142 @@
+            <div class="col-lg-4 col-md-6 shuffle-item" data-groups="[&quot;flangesmixers&quot;]">
+              <div class="project-img-container">
+                <a class="gallery-popup" href="app/images/projects/project1.jpg" aria-label="project-img">
+                  <img class="img-fluid" src="{% static 'app/images/projects/fgmixers.jpg' %}" alt="project-img">
+                  <!-- <span class="gallery-icon"><i class="fa fa-plus"></i></span> -->
+                </a>
+                <div class="project-item-info">
+                  <div class="project-item-info-content">
+                    <h3 class="project-item-title">
+                      <a href=""></a>
+                    </h3>
+                    <p class="project-cat"></p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 shuffle-item" data-groups="[&quot;utilityfitting&quot;]">
+              <div class="project-img-container">
+                <a class="gallery-popup" href="app/images/projects/project1.jpg" aria-label="project-img">
+                  <img class="img-fluid" src="{% static 'app/images/projects/ut1.jpg' %}" alt="project-img">
+                  <!-- <span class="gallery-icon"><i class="fa fa-plus"></i></span> -->
+                </a>
+                <div class="project-item-info">
+                  <div class="project-item-info-content">
+                    <h3 class="project-item-title">
+                      <a href=""></a>
+                    </h3>
+                    <p class="project-cat"></p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 shuffle-item" data-groups="[&quot;utilityfitting&quot;]">
+              <div class="project-img-container">
+                <a class="gallery-popup" href="app/images/projects/ut2.jpg" aria-label="project-img">
+                  <img class="img-fluid" src="{% static 'app/images/projects/ut2.jpg' %}" alt="project-img">
+                  <!-- <span class="gallery-icon"><i class="fa fa-plus"></i></span> -->
+                </a>
+                <div class="project-item-info">
+                  <div class="project-item-info-content">
+                    <h3 class="project-item-title">
+                      <a href=""></a>
+                    </h3>
+                    <p class="project-cat"></p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 shuffle-item" data-groups="[&quot;foodgradehoses&quot;]">
+              <div class="project-img-container">
+                <a class="gallery-popup" href="app/images/projects/project1.jpg" aria-label="project-img">
+                  <img class="img-fluid" src="{% static 'app/images/projects/foodgrade.png' %}" alt="project-img">
+                  <!-- <span class="gallery-icon"><i class="fa fa-plus"></i></span> -->
+                </a>
+                <div class="project-item-info">
+                  <div class="project-item-info-content">
+                    <h3 class="project-item-title">
+                      <a href=""></a>
+                    </h3>
+                    <p class="project-cat"></p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+
+
+
+
+
+            
+            <div class="col-lg-4 col-md-6 shuffle-item" data-groups="[&quot;utilityvalves&quot;]">
+              <div class="project-img-container">
+                <a class="gallery-popup" href="images/projects/project6.jpg" aria-label="project-img">
+                  <img class="img-fluid" src="{% static 'app/images/projects/valve1.png' %}" alt="project-img">
+                  <!-- <span class="gallery-icon"><i class="fa fa-plus"></i></span> -->
+                </a>
+                <div class="project-item-info">
+                  <div class="project-item-info-content">
+                    <h3 class="project-item-title">
+                      <a href=""></a>
+                    </h3>
+                    <p class="project-cat"></p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 shuffle-item" data-groups="[&quot;utilityvalves&quot;]">
+              <div class="project-img-container">
+                <a class="gallery-popup" href="images/projects/project6.jpg" aria-label="project-img">
+                  <img class="img-fluid" src="{% static 'app/images/projects/valve2.png' %}" alt="project-img">
+                  <!-- <span class="gallery-icon"><i class="fa fa-plus"></i></span> -->
+                </a>
+                <div class="project-item-info">
+                  <div class="project-item-info-content">
+                    <h3 class="project-item-title">
+                      <a href=""></a>
+                    </h3>
+                    <p class="project-cat"></p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 shuffle-item" data-groups="[&quot;utilityvalves&quot;]">
+              <div class="project-img-container">
+                <a class="gallery-popup" href="images/projects/project6.jpg" aria-label="project-img">
+                  <img class="img-fluid" src="{% static 'app/images/projects/valve3.png' %}" alt="project-img">
+                  <!-- <span class="gallery-icon"><i class="fa fa-plus"></i></span> -->
+                </a>
+                <div class="project-item-info">
+                  <div class="project-item-info-content">
+                    <h3 class="project-item-title">
+                      <a href=""></a>
+                    </h3>
+                    <p class="project-cat"></p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 shuffle-item" data-groups="[&quot;utilityvalves&quot;]">
+              <div class="project-img-container">
+                <a class="gallery-popup" href="images/projects/project6.jpg" aria-label="project-img">
+                  <img class="img-fluid" src="{% static 'app/images/projects/valve4.png' %}" alt="project-img">
+                  <!-- <span class="gallery-icon"><i class="fa fa-plus"></i></span> -->
+                </a>
+                <div class="project-item-info">
+                  <div class="project-item-info-content">
+                    <h3 class="project-item-title">
+                      <a href=""></a>
+                    </h3>
+                    <p class="project-cat"></p>
+                  </div>
+                </div>
+              </div>
+            </div>

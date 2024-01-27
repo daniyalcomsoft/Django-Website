@@ -1,0 +1,237 @@
+<div class="carousel-gallery">
+  <div class="swiper-container">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide">
+        <a href="https://images.pexels.com/photos/48794/boy-walking-teddy-bear-child-48794.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" data-fancybox="gallery">
+          <div class="image" style="background-image: url(https://images.pexels.com/photos/48794/boy-walking-teddy-bear-child-48794.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500)">
+            <div class="overlay">
+              <em class="mdi mdi-magnify-plus"></em>
+            </div>
+          </div>
+        </a>
+      </div>
+      <div class="swiper-slide">
+        <a href="https://images.pexels.com/photos/48794/boy-walking-teddy-bear-child-48794.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" data-fancybox="gallery">
+          <div class="image" style="background-image: url(https://images.pexels.com/photos/48794/boy-walking-teddy-bear-child-48794.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500)">
+            <div class="overlay">
+              <em class="mdi mdi-magnify-plus"></em>
+            </div>
+          </div>
+        </a>
+      </div>
+      <div class="swiper-slide">
+        <a href="https://images.pexels.com/photos/48794/boy-walking-teddy-bear-child-48794.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" data-fancybox="gallery">
+          <div class="image" style="background-image: url(https://images.pexels.com/photos/48794/boy-walking-teddy-bear-child-48794.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500)">
+            <div class="overlay">
+              <em class="mdi mdi-magnify-plus"></em>
+            </div>
+          </div>
+        </a>
+      </div>
+      <div class="swiper-slide">
+        <a href="https://images.pexels.com/photos/48794/boy-walking-teddy-bear-child-48794.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" data-fancybox="gallery">
+          <div class="image" style="background-image: url(https://images.pexels.com/photos/48794/boy-walking-teddy-bear-child-48794.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500)">
+            <div class="overlay">
+              <em class="mdi mdi-magnify-plus"></em>
+            </div>
+          </div>
+        </a>
+      </div>
+      <div class="swiper-slide">
+        <a href="https://images.pexels.com/photos/48794/boy-walking-teddy-bear-child-48794.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" data-fancybox="gallery">
+          <div class="image" style="background-image: url(https://images.pexels.com/photos/48794/boy-walking-teddy-bear-child-48794.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500)">
+            <div class="overlay">
+              <em class="mdi mdi-magnify-plus"></em>
+            </div>
+          </div>
+        </a>
+      </div>
+      <div class="swiper-slide">
+        <a href="https://images.pexels.com/photos/48794/boy-walking-teddy-bear-child-48794.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" data-fancybox="gallery">
+          <div class="image" style="background-image: url(https://images.pexels.com/photos/48794/boy-walking-teddy-bear-child-48794.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500)">
+            <div class="overlay">
+              <em class="mdi mdi-magnify-plus"></em>
+            </div>
+          </div>
+        </a>
+      </div>
+      <!-- Add more swiper-slide elements with other images here -->
+      <!-- ... -->
+    </div>
+    <div class="swiper-pagination"></div>
+    <!-- Add prev and next controls here -->
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-button-next"></div>
+  </div>
+</div>
+<!-- #Carousel Gallery -->
+
+<div class="plugins">
+  <h3>Plugins</h3>
+  <a href="http://idangero.us/swiper/" target="_blank">Swiper Slide</a>
+  <a href="https://fancyapps.com/fancybox/3/" target="_blank">fancyBox3</a>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+<script>
+  // Your JavaScript code here
+  $(function () {
+    var swiper = new Swiper(".carousel-gallery .swiper-container", {
+      effect: "slide",
+      speed: 900,
+      slidesPerView: 3,
+      spaceBetween: 20,
+      simulateTouch: true,
+      autoplay: {
+        delay: 5000,
+        stopOnLastSlide: false,
+        disableOnInteraction: false,
+      },
+      pagination: {
+        el: ".carousel-gallery .swiper-pagination",
+        clickable: true,
+      },
+      navigation: {
+        nextEl: ".carousel-gallery .swiper-button-next",
+        prevEl: ".carousel-gallery .swiper-button-prev",
+      },
+      breakpoints: {
+        // when window width is <= 320px
+        320: {
+          slidesPerView: 1,
+          spaceBetween: 5,
+        },
+        // when window width is <= 480px
+        425: {
+          slidesPerView: 2,
+          spaceBetween: 10,
+        },
+        // when window width is <= 640px
+        768: {
+          slidesPerView: 3,
+          spaceBetween: 20,
+        },
+      },
+    });
+  });
+  
+  
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.carousel-gallery {
+  margin: 50px 0;
+  padding: 0 30px;
+  overflow-x: hidden;
+  position: relative;
+}
+
+.carousel-gallery .swiper-slide a {
+  display: block;
+  width: 100%;
+  height: 200px;
+  border-radius: 4px;
+  overflow: hidden;
+  position: relative;
+  -webkit-box-shadow: 3px 2px 20px 0px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: 3px 2px 20px 0px rgba(0, 0, 0, 0.2);
+  box-shadow: 3px 2px 20px 0px rgba(0, 0, 0, 0.2);
+}
+
+.carousel-gallery .swiper-slide a:hover .image .overlay {
+  opacity: 1;
+}
+
+.carousel-gallery .swiper-slide .image {
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center center;
+}
+
+.carousel-gallery .swiper-slide .image .overlay {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(20, 20, 20, 0.8);
+  text-align: center;
+  opacity: 0;
+  transition: all 0.2s linear;
+}
+
+.carousel-gallery .swiper-slide .image .overlay em {
+  color: #fff;
+  font-size: 26px;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+  display: inline-block;
+}
+
+.carousel-gallery .swiper-pagination {
+  position: relative;
+  bottom: auto;
+  text-align: center;
+  margin-top: 25px;
+}
+
+.carousel-gallery .swiper-pagination .swiper-pagination-bullet {
+  transition: all 0.2s linear;
+}
+
+.carousel-gallery .swiper-pagination .swiper-pagination-bullet:hover {
+  opacity: 0.7;
+}
+
+.carousel-gallery .swiper-pagination .swiper-pagination-bullet.swiper-pagination-bullet-active {
+  background-color: #d63031;
+  transform: scale(1.1, 1.1);
+}
+
+.plugins {
+  text-align: center;
+}
+
+.plugins h3 {
+  text-align: center;
+  margin: 0;
+  padding: 0;
+  font-family: Arial;
+  text-transform: uppercase;
+  color: #111;
+}
+
+.plugins a {
+  display: inline-block;
+  font-family: Arial;
+  color: #777;
+  font-size: 14px;
+  margin: 10px;
+  transition: all 0.2s linear;
+}
+
+.plugins a:hover {
+  color: #d63031;
+}

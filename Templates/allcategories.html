@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block Title %} Category {% endblock Title %}
+
+
+
+{% block body %}
+
+
+<section id="main-container" class="main-container pb-2">
+    <div class="container">
+      <div class="row">                 
+        {% for act  in categories  %}
+        <div class="col-lg-4  col-md-6 mb-5">
+            
+            <div class="card" style="width: 18rem;">
+                <div class="card-body">
+                  <h5 class="card-title">{{act.CategoryName}}</h5>
+                </div>
+            </div>
+            
+        </div>
+        {% endfor %}
+        
+        </div>
+    </div>
+</section>
+
+
+{% endblock body %}
+
+{% block main-content %}
+
+{% endblock main-content %}

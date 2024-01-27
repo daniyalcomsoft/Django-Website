@@ -1,0 +1,62 @@
+{% extends 'basic.html' %}
+
+{% block content %}
+
+<div class="row">
+    <div class="col-sm-12">
+        <div class="card">
+            <div class="card-body">
+                <form method="post" action="{% url 'add_project' %}" enctype="multipart/form-data" >
+                    {% csrf_token %}
+                    <div class="row">
+                        <div class="col-12">
+                            <h5 class="form-title"><span>Add Project</span></h5>
+                        </div>
+                       {% include 'messages.html' %}
+
+                       <div class="col-12 col-sm-6">
+                        <div class="form-group">
+                            <label>Project Name</label>
+                            <input type="text" class="form-control" name="ProjectName" required>
+                        </div>
+                        </div>
+
+                        <div class="col-12 col-sm-6">
+                            <div class="form-group">
+                                <label>Project Image</label>
+                                <input type="file" class="form-control" name="ProjectImage">
+                            </div>
+                        </div>
+
+                        <div class="col-12 col-sm-6">
+                            <div class="form-group">
+                                <label>Start Date</label>
+                                <input type="date" class="form-control" name="StartDate" required>
+                            </div>
+                        </div>
+
+                        <div class="col-12 col-sm-6">
+                            <div class="form-group">
+                                <label>End Date</label>
+                                <input type="date" class="form-control" name="EndDate" required>
+                            </div>
+                        </div>
+
+                        <div class="col-12 col-sm-6">
+                            <div class="form-group">
+                                <label>Description</label>
+                                <input type="text" class="form-control" name="Description" required>
+                            </div>
+                        </div>
+
+                        
+                        <div class="col-12">
+                            <button type="submit" class="btn btn-primary">Add Project</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
